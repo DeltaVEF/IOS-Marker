@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1584AF1CA1D9F300013845 /* UIMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1584AE1CA1D9F300013845 /* UIMarker.swift */; };
 		AF96D01F1C8F7AC6006CA428 /* MarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF96D01E1C8F7AC6006CA428 /* MarkViewController.swift */; };
 		AF96D0211C8F87E8006CA428 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF96D0201C8F87E8006CA428 /* FeedbackViewController.swift */; };
+		AF96D0261C98D2CB006CA428 /* UITimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF96D0251C98D2CB006CA428 /* UITimeLineView.swift */; };
 		AFE2EB981C8B3DA200AA45C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE2EB971C8B3DA200AA45C3 /* AppDelegate.swift */; };
 		AFE2EB9A1C8B3DA200AA45C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE2EB991C8B3DA200AA45C3 /* LoginViewController.swift */; };
 		AFE2EB9D1C8B3DA200AA45C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE2EB9B1C8B3DA200AA45C3 /* Main.storyboard */; };
@@ -38,8 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF1584AE1CA1D9F300013845 /* UIMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMarker.swift; sourceTree = "<group>"; };
 		AF96D01E1C8F7AC6006CA428 /* MarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkViewController.swift; sourceTree = "<group>"; };
 		AF96D0201C8F87E8006CA428 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		AF96D0251C98D2CB006CA428 /* UITimeLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimeLineView.swift; sourceTree = "<group>"; };
 		AFE2EB941C8B3DA200AA45C3 /* VEF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VEF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE2EB971C8B3DA200AA45C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE2EB991C8B3DA200AA45C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF96D0221C98D274006CA428 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				AF96D0251C98D2CB006CA428 /* UITimeLineView.swift */,
+				AF1584AE1CA1D9F300013845 /* UIMarker.swift */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
 		AFE2EB8B1C8B3DA100AA45C3 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		AFE2EB961C8B3DA200AA45C3 /* VEF */ = {
 			isa = PBXGroup;
 			children = (
+				AF96D0221C98D274006CA428 /* CustomViews */,
 				AFE2EBC51C8B408200AA45C3 /* Classes */,
 				AFE2EB971C8B3DA200AA45C3 /* AppDelegate.swift */,
 				AFE2EB991C8B3DA200AA45C3 /* LoginViewController.swift */,
@@ -280,6 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE2EB9A1C8B3DA200AA45C3 /* LoginViewController.swift in Sources */,
+				AF1584AF1CA1D9F300013845 /* UIMarker.swift in Sources */,
+				AF96D0261C98D2CB006CA428 /* UITimeLineView.swift in Sources */,
 				AF96D0211C8F87E8006CA428 /* FeedbackViewController.swift in Sources */,
 				AFE2EB981C8B3DA200AA45C3 /* AppDelegate.swift in Sources */,
 				AF96D01F1C8F7AC6006CA428 /* MarkViewController.swift in Sources */,
@@ -426,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VEF/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -438,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = VEF/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

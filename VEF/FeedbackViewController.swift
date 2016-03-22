@@ -9,9 +9,4 @@
 import UIKit
 
 class FeedbackViewController : UIViewController {
-    @IBOutlet weak var Timeline: UISlider!{
-        didSet{
-            Timeline.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-        }
-    }
 }

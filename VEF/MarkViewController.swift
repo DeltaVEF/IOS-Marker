@@ -10,13 +10,13 @@ import UIKit
 
 class MarkViewController : UIViewController {
     
-    var timePassed = 0
+    @IBOutlet weak var TimeLine: UITimeLineView!
     
-    override func viewDidLoad() {
-        NSTimer.scheduledTimerWithTimeInterval (1, target: self, selector: "timer", userInfo: nil, repeats: true)
+    @IBAction func MarkerBtnPressed(sender: AnyObject) {
+        TimeLine.addMarker()
     }
     
-    func timer() {
-        timePassed++
+    override func viewDidLoad() {
+        // Nothing
     }
 }
