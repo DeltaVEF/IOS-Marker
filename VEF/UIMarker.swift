@@ -15,7 +15,7 @@ class UIMarker: UIView {
     init(position: CGPoint, color: UIColor) {
         super.init(frame: CGRect(x: position.x, y : position.y, width: 20, height: 40))
         
-        imageView = UIImageView(frame: frame)
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 40))
         imageView.image = UIImage(named: "marker")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         imageView.tintColor = color
         addSubview(imageView)

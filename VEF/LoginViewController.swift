@@ -7,30 +7,26 @@
 //
 
 import UIKit
+import Alamofire
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
-    @IBOutlet weak var tfUserName: UITextField!
     @IBOutlet weak var tfRoomCode: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var btnJoin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Bind keyboard show/hide listeners
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)        
     }
 
     @IBAction func textfieldExit(sender: AnyObject) {
         sender.resignFirstResponder()
-        
-        if sender.tag == 1 {
-            tfRoomCode.becomeFirstResponder()
-        }
-        
+        performSegueWithIdentifier("login", sender: btnJoin)
     }
-    
     
     // Make sure the scrollview will be resized when the keyboard is opened en closed
     func keyboardWillShow(notification:NSNotification){

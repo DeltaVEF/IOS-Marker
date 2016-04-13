@@ -12,34 +12,37 @@ class UITimeLineView: UIView {
 
     private var timepassed : Double = 0
     private var image : UIImageView!
+    private var pointer : UIImageView!
     private let lineWidth : Double = 144
-    private let movespeed : Double = 5
+    private let movespeed : Double = 10
     private let fps : Double = 60
+    private var centerX : CGFloat!
     private var markers : List<UIMarker> = List<UIMarker>()
     private var markerHolder : UIView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        // Make sure child views don't go outside the parent
-        self.clipsToBounds = true
-        
+        // Get the center coordinate of the screen
+        centerX = UIScreen.mainScreen().bounds.width / 2
+
         // Create timeline
         image = UIImageView(frame: CGRect(x: 0, y: bounds.size.height / 2 - 2.5, width: bounds.size.width, height: 5))
         image.backgroundColor = UIColor(patternImage: UIImage(named: "timeline")!)
         addSubview(image)
         
         // Create pointer
-        let pointer = UIImageView(frame: CGRect(x: image.bounds.size.width / 4 - 5, y: 0, width: 20, height: 20))
+        pointer = UIImageView(frame: CGRect(x: centerX - 10, y: 0, width: 20, height: 20))
         pointer.image = UIImage(named: "pointer")
         addSubview(pointer)
         
         // Create marker holder
-        markerHolder = UIView(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))
+        markerHolder = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         addSubview(markerHolder)
         
         // Initiate timer
         NSTimer.scheduledTimerWithTimeInterval(1 / fps, target: self, selector: "tick", userInfo: nil, repeats: true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func intrinsicContentSize() -> CGSize {
@@ -51,13 +54,24 @@ class UITimeLineView: UIView {
         
         for marker in markerHolder.subviews {
             marker.frame.origin.x -= CGFloat(movespeed / fps)
+            
+            if marker.frame.origin.x < -20 {
+                marker.removeFromSuperview()
+            }
         }
         
         timepassed += 1 / fps
     }
     
+    func rotated()
+    {
+        centerX = UIScreen.mainScreen().bounds.width / 2
+        
+        pointer.frame.origin.x = centerX - 10
+    }
+    
     func addMarker(){
-        let marker = UIMarker(position: CGPoint(x: bounds.width / 4 - 5, y: 2), color: UIColor(colorLiteralRed: 0.5, green: 0, blue: 0, alpha: 0.8))
+        let marker = UIMarker(position: CGPoint(x: centerX - 10, y: 2), color: UIColor(colorLiteralRed: 0.5, green: 0, blue: 0, alpha: 0.8))
         markers.add(marker)
         markerHolder.addSubview(marker)
     }
