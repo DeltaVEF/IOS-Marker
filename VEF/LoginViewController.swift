@@ -18,14 +18,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide navigation bar
+        self.navigation
+        self.navigationController?.navigationBarHidden = true
+        
         // Bind keyboard show/hide listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil)
     }
 
     @IBAction func textfieldExit(sender: AnyObject) {
         sender.resignFirstResponder()
         performSegueWithIdentifier("login", sender: btnJoin)
+        // TODO:
+        // checkCode()
     }
     
     // Make sure the scrollview will be resized when the keyboard is opened en closed
@@ -42,6 +48,22 @@ class LoginViewController: UIViewController {
     func keyboardWillHide(notification:NSNotification){
         let contentInset:UIEdgeInsets = UIEdgeInsetsZero
         self.scrollView.contentInset = contentInset
+    }
+    
+    @IBAction func btnJoin_Press(sender: UIButton) {
+        checkCode()
+    }
+    
+    private func checkCode() {
+        Network.request(.GET, args: ["room":tfRoomCode.text!, "join": ""], view: self, showError: false) {
+            (code: Int) in
+            
+            if (code == 200) {
+                self.performSegueWithIdentifier("login", sender: self.btnJoin)
+            } else {
+                Utils.alert("Error", message: "Unable to join room", view: self)
+            }
+        }
     }
 }
 

@@ -8,7 +8,7 @@
     "01C4019DAB2F13C7FB458F088D0A991884C46F1A" : 0,
     "67620B5EFA902936DF04070AF595B76AB0333747" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0347B8CD-5320-4F84-9824-8EF7BEA7D50D",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "03F51D22-9766-411C-9790-F9D8B7DFA5FE",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "1D826E3F310B33F4A73EBB0E5241889E80012104" : "VEF\/",
     "01C4019DAB2F13C7FB458F088D0A991884C46F1A" : "VEF\/socket.io-client-swift\/",
@@ -16,7 +16,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "VEF",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "VEF.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "VEF.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/socketio\/socket.io-client-swift.git",

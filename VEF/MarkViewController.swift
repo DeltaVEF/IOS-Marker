@@ -17,6 +17,5 @@ class MarkViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        // Nothing
     }
 }

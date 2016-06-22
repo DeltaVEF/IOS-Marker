@@ -41,8 +41,7 @@ class UITimeLineView: UIView {
         addSubview(markerHolder)
         
         // Initiate timer
-        NSTimer.scheduledTimerWithTimeInterval(1 / fps, target: self, selector: "tick", userInfo: nil, repeats: true)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSTimer.scheduledTimerWithTimeInterval(1 / fps, target: self, selector: #selector(UITimeLineView.tick), userInfo: nil, repeats: true)
     }
     
     override func intrinsicContentSize() -> CGSize {
@@ -63,14 +62,8 @@ class UITimeLineView: UIView {
         timepassed += 1 / fps
     }
     
-    func rotated()
-    {
-        centerX = UIScreen.mainScreen().bounds.width / 2
-        
-        pointer.frame.origin.x = centerX - 10
-    }
-    
     func addMarker(){
+        // TODO: HTTP Request
         let marker = UIMarker(position: CGPoint(x: centerX - 10, y: 2), color: UIColor(colorLiteralRed: 0.5, green: 0, blue: 0, alpha: 0.8))
         markers.add(marker)
         markerHolder.addSubview(marker)

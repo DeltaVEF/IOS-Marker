@@ -47,7 +47,7 @@ class List<T> : SequenceType {
             }
             newItems[index] = it
             
-            index++
+            index += 1
         }
         
         newItems[self.items.count] = item
@@ -98,11 +98,13 @@ class List<T> : SequenceType {
         var nextIndex = self.items.count-1
         
         // Construct an AnyGenerator<T?> instance, passing a closure that returns the next item in the iteration
-        return anyGenerator {
+        return AnyGenerator {
             if (nextIndex < 0) {
                 return nil
             }
-            return self.items[nextIndex--]
+            
+            nextIndex -= 1
+            return self.items[nextIndex]
         }
     }
 }
